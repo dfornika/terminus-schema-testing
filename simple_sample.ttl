@@ -1,0 +1,46 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix doc: <http://localhost:6363/test/document/> .
+@prefix scm: <http://localhost:6363/test/schema#> .
+@prefix tcs: <http://terminusdb.com/schema/tcs#> .
+@prefix tbs: <http://terminusdb.com/schema/tbs#> .
+@prefix xdd: <http://terminusdb.com/schema/xdd#> .
+@prefix vio: <http://terminusdb.com/schema/vio#> .
+@prefix terminus: <http://terminusdb.com/schema/terminus#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix db: <http://localhost:6363/test#> .
+@prefix obi: <http://purl.obolibrary.org/obo/OBI_> .
+
+db
+    rdf:type owl:Ontology ;
+    rdfs:comment "http://localhost:6363/test/schema ontology for http://localhost:6363/test"@en ;
+    rdfs:label "http://localhost:6363/test"@en .
+
+db:sample
+    rdf:type owl:Class;
+    rdfs:label "Sample"@en;
+    rdfs:comment "A sample"@en;
+    rdfs:subClassOf ex:Animal;
+    tcs:tag tcs:abstract .
+
+db:sampleName
+    rdf:type owl:DatatypeProperty;
+    rdfs:label "Sample Name"@en;
+    rdfs:comment "A name for a sample"@en;
+    rdfs:domain db:sample;
+    rdfs:range xsd:string;
+
+db:sampleOrganism
+    rdf:type owl:ObjectProperty;
+    rdfs:label "Organism"@en;
+    rdfs:comment "A organism for a sample"@en;
+    rdfs:domain db:sample;
+    rdfs:range obi:0100026;
+
+db:sampleDescription
+    rdf:type owl:DatatypeProperty;
+    rdfs:label "Description"@en;
+    rdfs:comment "A description for a sample"@en;
+    rdfs:domain db:sample;
+    rdfs:range xsd:string;
